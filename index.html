@@ -14,15 +14,18 @@ DIGI NINJA DEV
 #header
 {
     position:  relative;
+    padding: 5px;
     width: 95%;
-    height: 250px;
+    height: 100px;
     font-size: 24px;
     font-family: sans-serif;
+    text-align: center;
 }
 #content
 {
     position: relative;
-    padding: 5px;
+    height:  auto;
+    padding: 25px;
     font-size: 18x;
     font-weight: bold
 }
@@ -43,8 +46,21 @@ DIGI NINJA DEV
     height: 100px;
     width: 50%;
 }
-#content .full_page{}
+#content .full_page
+{
+    position: relative;
+    float: left;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+}
 </style>
+<script type="text/javascript">
+function test()
+{
+      alert('This is a test!');    
+}
+</script>
 <body>
 <div id="wrapper">
     <div id="header">   
@@ -60,7 +76,7 @@ DIGI NINJA DEV
         </div>
         
         <div class="full_page">
-        Centered Full Page
+        Centered Full Page <input type="button" value="Test" onclick="test()" />
         </div>
     </div>
 </div>    
