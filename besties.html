@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dorm Placment Generator</title>
+</head>
+<body>
+<script>
+boys = new Array();
+girls = new Array();
+
+// Hard Coded Bestie Arrays
+
+boy_1 = new Array() 
+	boy_1[0]="boy_2";      
+	boy_1[1]="boy_6";
+	boy_1[2]="boy_28";
+	boy_1[3]="boy_23";
+// ----------------------
+boy_2 = new Array() 
+	boy_2[0]="boy_30";      
+	boy_2[1]="boy_12";
+	boy_2[2]="boy_7";
+	boy_2[3]="boy_21";
+// ----------------------
+boy_3 = new Array() 
+	boy_3[0]="boy_11";      
+	boy_3[1]="boy_18";
+	boy_3[2]="boy_9";
+	boy_3[3]="boy_5";
+// ----------------------
+boy_4 = new Array() 
+	boy_4[0]="boy_2";      
+	boy_4[1]="boy_9";
+	boy_4[2]="boy_10";
+	boy_4[3]="boy_13";
+// ----------------------
+boy_5 = new Array() 
+	boy_5[0]="boy_3";      
+	boy_5[1]="boy_29";
+	boy_5[2]="boy_19";
+	boy_5[3]="boy_24";
+// ----------------------
+boy_6 = new Array() 
+	boy_6[0]="boy_2";      
+	boy_6[1]="boy_8";
+	boy_6[2]="boy_16";
+	boy_6[3]="boy_30";
+// ----------------------
+boy_7 = new Array() 
+	boy_6[0]="boy_3";      
+	boy_6[1]="boy_24";
+	boy_6[2]="boy_11";
+	boy_6[3]="boy_10";
+// ----------------------
+boy_8 = new Array() 
+	boy_6[0]="boy_7";      
+	boy_6[1]="boy_3";
+	boy_6[2]="boy_5";
+	boy_6[3]="boy_28";
+// ----------------------
+boy_9 = new Array() 
+	boy_6[0]="boy_0";      
+	boy_6[1]="boy_1";
+	boy_6[2]="boy_4";
+	boy_6[3]="boy_6";
+// ----------------------
+boy_10 = new Array() 
+	boy_6[0]="boy_3";      
+	boy_6[1]="boy_9";
+	boy_6[2]="boy_12";
+	boy_6[3]="boy_15";
+// ----------------------
+
+bestieList = new Array();
+
+function populate_arrays()
+{
+// Populate Boys Array
+for (var i=0;i<31;i++)
+{
+var ID = 'boy_' + i;
+boys.push(ID);
+//var alertTxt = 'I am driving a ' + mycars[i];
+}
+	alert(boys.length + ' boys');
+
+// Populate Girls Array
+
+for (var i=0;i<29;i++)
+{
+var ID = 'girl_' + i;
+girls.push(ID);
+//var alertTxt = 'I am driving a ' + mycars[i];
+}
+alert(girls.length+' girls');
+}
+
+function generate_besties_list(start,limit)
+{
+	alert('Generating Besties List');
+ 
+	for (var i=start;i<limit;i++)
+	{
+		//console.log('Adding list for: '+boys[i]);
+		setTimeout( "add_bestie(boys[0],boys)", 500 );
+	}
+}
+
+
+
+function print_to_console(list)
+{
+	for (var i=0;i<boys.length;i++)
+	{
+		//console.log('Adding list for: '+boys[i]);
+		/*
+		if(i <= boys.length)
+		{
+			setTimeout( "add_bestie(boys[i],boys)", 500 );
+		}
+		*/
+		
+		//add_bestie(boys[i],boys);
+	}
+	return true;	
+}
+
+function add_bestie(self, list)
+{
+   bestieList = [];
+   list.remove(self);
+   //console.log(list.length);
+   // Generate Random ID
+   var x =0;
+   while(x<4)
+   {
+        addRandomID(list);
+		x++;
+   }
+   //console.log('Finished adding ' + bestieList.length + ' IDs to besties list');
+   console.log(self+"'s bestie list contains: ");
+   for (var ii=0;ii<bestieList.length;ii++)
+   {
+        console.log(bestieList[ii]);
+   }
+   	
+}
+
+function addRandomID(list)
+{
+    
+   var randID = getRandomID(0, list.length);
+   //console.log('Added : '+list[randID]);
+   // Add Random ID to Current IDs Bestie Array
+   bestieList.push(list[randID]);
+   return true;	
+}
+
+function getRandomID (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+Array.prototype.remove = function(value) {
+       this.splice(this.indexOf(value), 1);
+       return true;
+};
+
+
+</script>
+
+<input type="button" value="Populate Arrays" onclick="populate_arrays()" /> </br>
+<input type="button" value="Generate Bestie Lists" onclick="generate_besties_list(0,30)" /> </br>
+</body>
+</html>
