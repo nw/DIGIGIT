@@ -2,7 +2,7 @@ var Scheduler = require('..')
   , util = require('../lib/util');
   
   
-  [31].forEach(function(students){
+  [29, 31].forEach(function(students){
     log(new Scheduler(util.createStudents(students)))
   });
   
