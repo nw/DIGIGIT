@@ -20,6 +20,16 @@ for(var i=0; i< 31; i++){
   })
 }
 
+boys.forEach(function(boy){
+  var count = 0;
+  boy.friends.forEach(function(friend){
+    var friend = boys[friend];
+    if( friend.friends.indexOf(boy.name) != -1){
+      count++;
+    }
+  });
+  console.log(boy.name, count);
+})
 
 function getRandomFriends(person, total){
   var friends = []
