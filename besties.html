@@ -9,7 +9,7 @@
 boys = new Array();
 girls = new Array();
 
-// Hard Coded Bestie Arrays
+// Hard Coded Arrays
 
 boy_1 = new Array() 
 	boy_1[0]="boy_2";      
@@ -128,7 +128,7 @@ function add_bestie(self, list)
 {
    bestieList = [];
    list.remove(self);
-   //console.log(list.length);
+   console.log(list.length);
    // Generate Random ID
    var x =0;
    while(x<4)
@@ -136,7 +136,7 @@ function add_bestie(self, list)
         addRandomID(list);
 		x++;
    }
-   //console.log('Finished adding ' + bestieList.length + ' IDs to besties list');
+   console.log('Finished adding ' + bestieList.length + ' IDs to besties list');
    console.log(self+"'s bestie list contains: ");
    for (var ii=0;ii<bestieList.length;ii++)
    {
@@ -149,7 +149,7 @@ function addRandomID(list)
 {
     
    var randID = getRandomID(0, list.length);
-   //console.log('Added : '+list[randID]);
+   console.log('Added : '+list[randID]);
    // Add Random ID to Current IDs Bestie Array
    bestieList.push(list[randID]);
    return true;	
